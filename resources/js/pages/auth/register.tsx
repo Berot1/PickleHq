@@ -5,7 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { motion } from "motion/react";
 import { login } from "@/routes";
 import { store } from "@/routes/register";
-import { home} from '@/routes';
+import { home } from '@/routes';
 
 const termsText = (
   <>
@@ -28,7 +28,7 @@ export default function Register({ passwordRules }: { passwordRules: string }) {
     <section className="min-h-screen bg-[#050505] p-3 font-sans text-white antialiased selection:bg-[#A5ED0F] selection:text-[#111111] [font-synthesis:none]">
       <Head title="Create an account" />
       <div className="grid min-h-[calc(95vh-0.2rem)] gap-4 lg:grid-cols-[0.94fr_1.06fr]">
-
+        
         {/* Left Side - SignUp Form */}
         <div className="flex min-h-0 items-center justify-center rounded-md border border-black/5 bg-[#f5f3ee] px-6 py-8 shadow-[0_0_0_1px_rgba(17,17,17,0.02)] lg:min-h-0 lg:px-14 lg:py-10 xl:px-20">
           <div className="mx-auto w-full max-w-[460px]">
@@ -38,84 +38,68 @@ export default function Register({ passwordRules }: { passwordRules: string }) {
               </h1>
             </div>
 
-            {/* Social Signup Buttons */}
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 sm:gap-4">
-              <button type="button" className="flex h-11 w-full min-w-0 items-center justify-center gap-2 rounded-lg border border-black/10 bg-white px-4 text-sm font-medium text-[#111111] transition-colors hover:bg-black/[0.02]">
-                <GoogleIcon />
-                <span className="whitespace-nowrap">Sign up with Google</span>
-              </button>
-              <button type="button" className="flex h-11 w-full min-w-0 items-center justify-center gap-2 rounded-lg border border-black/10 bg-white px-4 text-sm font-medium text-[#111111] transition-colors hover:bg-black/[0.02]">
-                <AppleIcon />
-                <span className="whitespace-nowrap">Sign up with Apple</span>
-              </button>
-            </div>
-
-            <div className="my-4 flex items-center gap-4 text-xs font-medium text-[#111111]/40">
-              <div className="h-px flex-1 bg-black/10" />
-              or
-              <div className="h-px flex-1 bg-black/10" />
-            </div>
-
-            <Form {...store.form()} resetOnSuccess={['password', 'password_confirmation']} disableWhileProcessing className="space-y-3">
-              {({ processing, errors }) => (
-                <>
-                  <div className="w-full space-y-1.5 text-left">
-                    <label htmlFor="name" className="text-sm font-medium text-[#111111]/80">Full name</label>
-                    <div className="relative flex h-11 items-center rounded-lg border border-black/10 bg-white px-3.5 transition-all focus-within:border-black/20 focus-within:ring-1 focus-within:ring-black/10">
-                      <input id="name" name="name" type="text" required autoFocus autoComplete="name" placeholder="Full name" className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
-                    </div>
-                    {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
-                  </div>
-
-                  <div className="w-full space-y-1.5 text-left">
-                    <label htmlFor="email" className="text-sm font-medium text-[#111111]/80">Email</label>
-                    <div className="relative flex h-11 items-center rounded-lg border border-black/10 bg-white px-3.5 transition-all focus-within:border-black/20 focus-within:ring-1 focus-within:ring-black/10">
-                      <input id="email" name="email" type="email" required autoComplete="email" placeholder="email@example.com" className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
-                    </div>
-                    {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
+            <div className="mt-8">
+              <Form {...store.form()} resetOnSuccess={['password', 'password_confirmation']} disableWhileProcessing className="space-y-3">
+                {({ processing, errors }) => (
+                  <>
                     <div className="w-full space-y-1.5 text-left">
-                      <label htmlFor="password" className="text-sm font-medium text-[#111111]/80">Password</label>
+                      <label htmlFor="name" className="text-sm font-medium text-[#111111]/80">Full name</label>
                       <div className="relative flex h-11 items-center rounded-lg border border-black/10 bg-white px-3.5 transition-all focus-within:border-black/20 focus-within:ring-1 focus-within:ring-black/10">
-                        <input id="password" name="password" type={showPassword ? "text" : "password"} required autoComplete="new-password" placeholder="Password" pattern={passwordRules} className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
-                        <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3.5 cursor-pointer text-[#111111]/45 transition-colors hover:text-[#111111]">
-                          {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
-                        </button>
+                        <input id="name" name="name" type="text" required autoFocus autoComplete="name" placeholder="Full name" className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
                       </div>
-                      {errors.password && <p className="mt-1 text-xs text-red-400">{errors.password}</p>}
+                      {errors.name && <p className="mt-1 text-xs text-red-400">{errors.name}</p>}
                     </div>
 
                     <div className="w-full space-y-1.5 text-left">
-                      <label htmlFor="password_confirmation" className="text-sm font-medium text-[#111111]/80">Confirm Password</label>
+                      <label htmlFor="email" className="text-sm font-medium text-[#111111]/80">Email</label>
                       <div className="relative flex h-11 items-center rounded-lg border border-black/10 bg-white px-3.5 transition-all focus-within:border-black/20 focus-within:ring-1 focus-within:ring-black/10">
-                        <input id="password_confirmation" name="password_confirmation" type={showConfirmPassword ? "text" : "password"} required autoComplete="new-password" placeholder="Confirm password" pattern={passwordRules} className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
-                        <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3.5 cursor-pointer text-[#111111]/45 transition-colors hover:text-[#111111]">
-                          {showConfirmPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
-                        </button>
+                        <input id="email" name="email" type="email" required autoComplete="email" placeholder="email@example.com" className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
                       </div>
-                      {errors.password_confirmation && <p className="mt-1 text-xs text-red-400">{errors.password_confirmation}</p>}
+                      {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
                     </div>
-                  </div>
 
-                  <div className="space-y-2 pt-1 text-xs leading-5 text-[#111111]/55 sm:text-[13px]">
-                    <CheckboxLine name="marketing_opt_out">
-                      I don't want to receive emails about PickleHQ feature updates and best practices.
-                    </CheckboxLine>
-                    <CheckboxLine name="terms" required>{termsText}</CheckboxLine>
-                  </div>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="w-full space-y-1.5 text-left">
+                        <label htmlFor="password" className="text-sm font-medium text-[#111111]/80">Password</label>
+                        <div className="relative flex h-11 items-center rounded-lg border border-black/10 bg-white px-3.5 transition-all focus-within:border-black/20 focus-within:ring-1 focus-within:ring-black/10">
+                          <input id="password" name="password" type={showPassword ? "text" : "password"} required autoComplete="new-password" placeholder="Password" pattern={passwordRules} className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
+                          <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3.5 cursor-pointer text-[#111111]/45 transition-colors hover:text-[#111111]">
+                            {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                          </button>
+                        </div>
+                        {errors.password && <p className="mt-1 text-xs text-red-400">{errors.password}</p>}
+                      </div>
 
-                  <button type="submit" disabled={processing} className="mt-4 flex h-11 w-full items-center justify-center rounded-lg bg-[#111111] text-sm font-medium text-white transition-colors hover:bg-black disabled:opacity-50">
-                    {processing ? 'Creating account...' : 'Submit'}
-                  </button>
+                      <div className="w-full space-y-1.5 text-left">
+                        <label htmlFor="password_confirmation" className="text-sm font-medium text-[#111111]/80">Confirm Password</label>
+                        <div className="relative flex h-11 items-center rounded-lg border border-black/10 bg-white px-3.5 transition-all focus-within:border-black/20 focus-within:ring-1 focus-within:ring-black/10">
+                          <input id="password_confirmation" name="password_confirmation" type={showConfirmPassword ? "text" : "password"} required autoComplete="new-password" placeholder="Confirm password" pattern={passwordRules} className="w-full bg-transparent text-sm text-[#111111] outline-none placeholder:text-[#111111]/35" />
+                          <button type="button" onClick={() => setShowConfirmPassword(!showConfirmPassword)} className="absolute right-3.5 cursor-pointer text-[#111111]/45 transition-colors hover:text-[#111111]">
+                            {showConfirmPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+                          </button>
+                        </div>
+                        {errors.password_confirmation && <p className="mt-1 text-xs text-red-400">{errors.password_confirmation}</p>}
+                      </div>
+                    </div>
 
-                  <div className="mt-4 text-center text-sm text-[#111111]/60">
-                    Already have an account? <Link href={login()} className="font-medium text-[#111111] underline underline-offset-4 hover:text-black/80">Log in</Link>
-                  </div>
-                </>
-              )}
-            </Form>
+                    <div className="space-y-2 pt-1 text-xs leading-5 text-[#111111]/55 sm:text-[13px]">
+                      <CheckboxLine name="marketing_opt_out">
+                        I don't want to receive emails about PickleHQ feature updates and best practices.
+                      </CheckboxLine>
+                      <CheckboxLine name="terms" required>{termsText}</CheckboxLine>
+                    </div>
+
+                    <button type="submit" disabled={processing} className="mt-4 flex h-11 w-full items-center justify-center rounded-lg bg-[#111111] text-sm font-medium text-white transition-colors hover:bg-black disabled:opacity-50">
+                      {processing ? 'Creating account...' : 'Submit'}
+                    </button>
+
+                    <div className="mt-4 text-center text-sm text-[#111111]/60">
+                      Already have an account? <Link href={login()} className="font-medium text-[#111111] underline underline-offset-4 hover:text-black/80">Log in</Link>
+                    </div>
+                  </>
+                )}
+              </Form>
+            </div>
           </div>
         </div>
 
@@ -165,7 +149,7 @@ export default function Register({ passwordRules }: { passwordRules: string }) {
                 transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-7 text-3xl font-black uppercase leading-[1.1] tracking-tighter text-white sm:text-4xl lg:text-[40px]"
               >
-                “Finally, a platform that handles the scheduling chaos so I can focus on playing.”
+                Finally, a platform that handles the scheduling chaos so I can focus on playing.
               </motion.blockquote>
             </div>
 
@@ -222,24 +206,5 @@ function CheckboxLine({ name, required, children }: { name: string; required?: b
       </span>
       <span>{children}</span>
     </label>
-  );
-}
-
-function GoogleIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
-      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09Z" fill="#4285F4" />
-      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23Z" fill="#34A853" />
-      <path d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.84Z" fill="#FBBC05" />
-      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38Z" fill="#EB4335" />
-    </svg>
-  );
-}
-
-function AppleIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="shrink-0 text-[#111111]">
-      <path d="M17.05 12.54c-.03-3.02 2.47-4.47 2.58-4.54-1.41-2.06-3.6-2.34-4.38-2.37-1.86-.19-3.64 1.1-4.58 1.1-.95 0-2.42-1.07-3.98-1.04-2.05.03-3.94 1.19-4.99 3.02-2.13 3.69-.54 9.16 1.53 12.15 1.01 1.46 2.22 3.1 3.81 3.04 1.53-.06 2.11-.99 3.96-.99s2.37.99 3.99.96c1.65-.03 2.69-1.49 3.69-2.96 1.16-1.69 1.64-3.33 1.66-3.41-.04-.02-3.2-1.23-3.24-4.87ZM14.03 3.66c.84-1.02 1.41-2.43 1.25-3.84-1.21.05-2.68.81-3.55 1.83-.78.9-1.46 2.34-1.28 3.72 1.35.1 2.73-.69 3.58-1.71Z" />
-    </svg>
   );
 }
