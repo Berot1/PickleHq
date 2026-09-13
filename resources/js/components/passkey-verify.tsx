@@ -61,10 +61,10 @@ export default function PasskeyVerify({
 
             <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">
-                    <Separator className="w-full" />
+                    <Separator className="w-full bg-[#111111]/15" />
                 </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-background text-muted-foreground px-2">
+                <div className="relative flex justify-center text-xs uppercase tracking-[0.18em]">
+                    <span className="bg-[#f5f3ee] px-2 text-[#111111]/60">
                         {separator ?? 'Or continue with email'}
                     </span>
                 </div>
