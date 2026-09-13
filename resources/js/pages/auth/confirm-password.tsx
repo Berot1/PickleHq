@@ -18,8 +18,8 @@ export default function ConfirmPassword() {
 
             <PasskeyVerify
                 routes={{
-                    options: confirmOptions(),
-                    submit: confirmStore(),
+                    options: confirmOptions().url,
+                    submit: confirmStore().url,
                 }}
                 label="Confirm with passkey"
                 loadingLabel="Confirming..."
