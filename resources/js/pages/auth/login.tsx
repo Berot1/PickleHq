@@ -3,7 +3,7 @@ import { useState, type ReactNode } from 'react';
 import { FlutedGlass } from '@paper-design/shaders-react';
 import { Eye, EyeOff } from 'lucide-react';
 import { motion } from 'motion/react';
-import { home, register } from '@/routes';
+import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
 import { supabase } from '@/lib/supabase';

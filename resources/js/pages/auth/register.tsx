@@ -5,7 +5,6 @@ import { Eye, EyeOff } from 'lucide-react';
 import { motion } from 'motion/react';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
-import { home } from '@/routes';
 
 const termsText = (
     <>

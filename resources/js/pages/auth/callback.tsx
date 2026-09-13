@@ -5,9 +5,9 @@ import { Spinner } from '@/components/ui/spinner';
 
 export default function AuthCallback() {
     useEffect(() => {
-        supabase.auth.getSession().then(({ data: { session } }) => {
+        void supabase.auth.getSession().then(({ data: { session } }) => {
             if (session?.access_token) {
-                syncSupabaseWithLaravel(session.access_token);
+                void syncSupabaseWithLaravel(session.access_token);
             }
         });
     }, []);
