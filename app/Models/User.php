@@ -55,8 +55,8 @@ class User extends Authenticatable
         return $this->hasMany(Reservation::class);
     }
 
-    public function passkeys()
+    public function passkeys(): HasMany
     {
-        return $this->hasMany(Passkey::class); // Adjust based on your actual relationship
+        return $this->hasMany(Passkey::class);
     }
 }

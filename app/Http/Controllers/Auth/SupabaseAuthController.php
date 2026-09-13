@@ -21,7 +21,7 @@ class SupabaseAuthController extends Controller
 
         // Validate token against Supabase Auth API
         $response = Http::withToken($accessToken)
-            ->get(rtrim(env('VITE_SUPABASE_URL'), '/').'/auth/v1/user');
+            ->get(rtrim(config('services.supabase.url'), '/').'/auth/v1/user');
 
         if (! $response->successful()) {
             return response()->json(['message' => 'Invalid Supabase session.'], 401);
