@@ -30,8 +30,8 @@ class SupabaseAuthController extends Controller
         $supabaseUser = $response->json();
         $email = $supabaseUser['email'];
         $supabaseId = $supabaseUser['id'];
-        $name = $supabaseUser['user_metadata']['full_name'] 
-            ?? $supabaseUser['user_metadata']['name'] 
+        $name = $supabaseUser['user_metadata']['full_name']
+            ?? $supabaseUser['user_metadata']['name']
             ?? strstr($email, '@', true);
 
         // Find or create local Laravel user
