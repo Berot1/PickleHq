@@ -20,6 +20,7 @@ class SecurityController extends Controller
     {
         $props = [
             'canManagePasskeys' => Features::canManagePasskeys(),
+            'canManageTwoFactor' => Features::canManageTwoFactorAuthentication(),
             'passkeys' => Features::canManagePasskeys()
                 ? $request->user()
                     ->passkeys()
